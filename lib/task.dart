@@ -51,6 +51,7 @@ class MyFormPage extends StatelessWidget {
                       },
                     ),
                     FastDatePicker(
+                      backgroundColor: Colors.green,
                       onSaved: (value) {
                         if (value != null) due_date = value;
                       },
@@ -60,6 +61,7 @@ class MyFormPage extends StatelessWidget {
                       lastDate: DateTime.now().add(const Duration(days: 365)),
                     ),
                     FastDropdown<String>(
+                      dropdownColor: const Color.fromARGB(255, 255, 184, 133),
                       onSaved: (value) {
                         frequency = value.toString();
                       },
@@ -69,6 +71,7 @@ class MyFormPage extends StatelessWidget {
                       initialValue: 'Once',
                     ),
                     FastDropdown<String>(
+                      dropdownColor: const Color.fromARGB(255, 255, 184, 133),
                       onChanged: (value2) {
                         location = value2.toString();
                       },
@@ -90,7 +93,7 @@ class MyFormPage extends StatelessWidget {
                         FastRadioOption(text: 'Stressed', value: 'stressed'),
                       ],
                     ),
-                    CupertinoButton(
+                    TextButton(
                         child: const Text('Submit'),
                         onPressed: () {
                           if (formKey.currentState!.validate()) {
@@ -103,7 +106,8 @@ class MyFormPage extends StatelessWidget {
                                 location: location,
                                 frequency: frequency,
                                 mood: mood));
-                            idcounter = idcounter;
+                            idcounter = idcounter + 1;
+
                             Navigator.pop(context);
                             Navigator.push(
                               context,
@@ -235,7 +239,8 @@ class TaskPage extends StatelessWidget {
 }
 
 class Task {
-  String id, name, completed, duedate, location, frequency, mood;
+  int id;
+  String name, completed, duedate, location, frequency, mood;
   Task(
       {required this.id,
       required this.name,

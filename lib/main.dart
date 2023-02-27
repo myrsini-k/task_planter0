@@ -143,97 +143,99 @@ class DisplayPictureScreen extends StatelessWidget {
 
 void main() {
   tasks.add(Task(
-      id: "0",
+      id: idcounter,
       name: "Plant tree",
       completed: "no",
       duedate: "",
       location: "home",
       frequency: "daily",
       mood: "happy"));
+  idcounter = idcounter + 1;
   tasks.add(Task(
-      id: "1",
+      id: idcounter,
       name: "Water plants",
       completed: "yes",
       duedate: "",
       location: "home",
       frequency: "daily",
       mood: "calm"));
-
+  idcounter = idcounter + 1;
   tasks.add(Task(
-      id: "3",
+      id: idcounter,
       name: "Finish report",
       completed: "no",
       duedate: "",
       location: "uni",
       frequency: "once",
       mood: "stressed"));
-
+  idcounter = idcounter + 1;
   tasks.add(Task(
-      id: "4",
+      id: idcounter,
       name: "Work out",
       completed: "yes",
       duedate: "",
       location: "home",
       frequency: "weekly",
       mood: "happy"));
-
+  idcounter = idcounter + 1;
   tasks.add(Task(
-      id: "5",
+      id: idcounter,
       name: "Prepare dinner",
       completed: "no",
       duedate: "",
       location: "home",
       frequency: "daily",
       mood: "happy"));
-
+  idcounter = idcounter + 1;
   tasks.add(Task(
-      id: "6",
+      id: idcounter,
       name: "Organise notes",
       completed: "no",
       duedate: "",
       location: "home",
       frequency: "weekly",
       mood: "calm"));
-
+  idcounter = idcounter + 1;
   tasks.add(Task(
-      id: "7",
+      id: idcounter,
       name: "Take out the trash",
       completed: "no",
       duedate: "",
       location: "home",
       frequency: "once",
       mood: "calm"));
-
+  idcounter = idcounter + 1;
   tasks.add(Task(
-      id: "8",
+      id: idcounter,
       name: "Get groceries",
       completed: "no",
       duedate: "",
       location: "home",
       frequency: "once",
       mood: "calm"));
-
+  idcounter = idcounter + 1;
   tasks.add(Task(
-      id: "9",
+      id: idcounter,
       name: "Go to John's party",
       completed: "no",
       duedate: "",
       location: "home",
       frequency: "once",
       mood: "excited"));
-
+  idcounter = idcounter + 1;
   tasks.add(Task(
-      id: "10",
+      id: idcounter,
       name: "Write in journal",
       completed: "no",
       duedate: "",
       location: "home",
       frequency: "daily",
       mood: "excited"));
+  idcounter = idcounter + 1;
   runApp(const TaskPlanter());
 }
 
-var idcounter = "10";
+var idcounter = 0;
 List<Task> tasks = [];
 
 String inputText = "";
