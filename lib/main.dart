@@ -73,8 +73,7 @@ class TakePictureScreenState extends State<TakePictureScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar:
-          AppBar(title: const Text('Take a picture for the completed task')),
+      appBar: AppBar(title: const Text('Take a picture for this task')),
       // You must wait until the controller is initialized before displaying the
       // camera preview. Use a FutureBuilder to display a loading spinner until the
       // controller has finished initializing.
@@ -91,7 +90,7 @@ class TakePictureScreenState extends State<TakePictureScreen> {
         },
       ),
       floatingActionButton: FloatingActionButton(
-        backgroundColor: Color(0xFFB3F39B),
+        backgroundColor: const Color(0xFFB3F39B),
         // Provide an onPressed callback.
         onPressed: () async {
           // Take the Picture in a try / catch block. If anything goes wrong,
@@ -143,6 +142,15 @@ class DisplayPictureScreen extends StatelessWidget {
       // The image is stored as a file on the device. Use the `Image.file`
       // constructor with the given path to display the image.
       body: Image.file(File(imagePath)),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () => Navigator.push(context,
+            MaterialPageRoute(builder: (context) => const PageViewDemo())),
+        backgroundColor: const Color(0xFFB3F39B),
+        child: const Icon(
+          Icons.task_outlined,
+          color: const Color(0xFF2E5627),
+        ),
+      ),
     );
   }
 }
