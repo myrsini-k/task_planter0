@@ -23,6 +23,7 @@ class MyFormPage extends StatelessWidget {
   late String frequency;
   late DateTime duedate;
   late String mood;
+  late String type;
   String location = 'home';
   //TextEditingController label = TextEditingController();
 
@@ -100,6 +101,19 @@ class MyFormPage extends StatelessWidget {
                         FastRadioOption(text: 'Stressed', value: 'stressed'),
                       ],
                     ),
+                    FastRadioGroup<String>(
+                      onSaved: (value) {
+                        type = value.toString();
+                      },
+                      name: 'radio_group2',
+                      labelText: 'Plant pickerr',
+                      options: const [
+                        FastRadioOption(text: '1', value: 'plant1'),
+                        FastRadioOption(text: '2', value: 'plant2'),
+                        FastRadioOption(text: '3', value: 'plant3'),
+                        FastRadioOption(text: '4', value: 'plant4'),
+                      ],
+                    ),
                     TextButton(
                         style: const ButtonStyle(),
                         child: const Text('Submit'),
@@ -108,10 +122,10 @@ class MyFormPage extends StatelessWidget {
                             formKey.currentState!.save();
                             tasks.add(Task(
                                 id: idcounter,
-                                type: "plant1",
+                                type: type,
                                 name: label,
                                 completed: "no",
-                                duedate: "",
+                                duedate: duedate,
                                 location: location,
                                 frequency: frequency,
                                 mood: mood));
@@ -168,7 +182,7 @@ class TaskPage extends StatelessWidget {
             child: Column(
               children: [
                 TaskList(),
-                SizedBox(
+                const SizedBox(
                   height: 50,
                 ),
                 Row(
@@ -190,7 +204,7 @@ class TaskPage extends StatelessWidget {
                           Icons.add,
                           color: Color(0xFF2E5627),
                         )),
-                    SizedBox(
+                    const SizedBox(
                       width: 200,
                     ),
                     FloatingActionButton(
@@ -249,7 +263,8 @@ class TaskPage extends StatelessWidget {
 
 class Task {
   int id;
-  String name, type, completed, duedate, location, frequency, mood;
+  DateTime duedate;
+  String name, type, completed, location, frequency, mood;
   Task(
       {required this.id,
       required this.type,

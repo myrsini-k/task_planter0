@@ -29,7 +29,7 @@ class Homelay extends StatelessWidget {
                   color: Color.fromARGB(255, 168, 76, 58),
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 10,
               ),
               const Text(

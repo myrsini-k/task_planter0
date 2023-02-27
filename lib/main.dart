@@ -149,7 +149,7 @@ Future<void> main() async {
       name: "Plant tree",
       type: "plant4",
       completed: "no",
-      duedate: "",
+      duedate: DateTime.utc(2024, 6, 6),
       location: "home",
       frequency: "daily",
       mood: "happy"));
@@ -159,7 +159,7 @@ Future<void> main() async {
       name: "Water plants",
       type: "plant1",
       completed: "yes",
-      duedate: "",
+      duedate: DateTime.utc(2023, 10, 6),
       location: "home",
       frequency: "daily",
       mood: "calm"));
@@ -169,7 +169,7 @@ Future<void> main() async {
       type: "plant2",
       name: "Finish report",
       completed: "no",
-      duedate: "",
+      duedate: DateTime.utc(2023, 6, 14),
       location: "uni",
       frequency: "once",
       mood: "stressed"));
@@ -179,7 +179,7 @@ Future<void> main() async {
       id: idcounter,
       name: "Work out",
       completed: "yes",
-      duedate: "",
+      duedate: DateTime.utc(1944, 6, 6),
       location: "home",
       frequency: "weekly",
       mood: "happy"));
@@ -189,7 +189,7 @@ Future<void> main() async {
       id: idcounter,
       name: "Prepare dinner",
       completed: "no",
-      duedate: "",
+      duedate: DateTime.utc(1944, 6, 6),
       location: "home",
       frequency: "daily",
       mood: "happy"));
@@ -199,7 +199,7 @@ Future<void> main() async {
       id: idcounter,
       name: "Organise notes",
       completed: "no",
-      duedate: "",
+      duedate: DateTime.utc(2023, 2, 18),
       location: "home",
       frequency: "weekly",
       mood: "calm"));
@@ -209,7 +209,7 @@ Future<void> main() async {
       type: "plant4",
       name: "Take out the trash",
       completed: "no",
-      duedate: "",
+      duedate: DateTime.utc(1944, 6, 6),
       location: "home",
       frequency: "once",
       mood: "calm"));
@@ -219,7 +219,7 @@ Future<void> main() async {
       id: idcounter,
       name: "Get groceries",
       completed: "no",
-      duedate: "",
+      duedate: DateTime.utc(1944, 6, 6),
       location: "home",
       frequency: "once",
       mood: "calm"));
@@ -229,7 +229,7 @@ Future<void> main() async {
       type: "plant3",
       name: "Go to John's party",
       completed: "no",
-      duedate: "",
+      duedate: DateTime.utc(1944, 6, 6),
       location: "home",
       frequency: "once",
       mood: "excited"));
@@ -239,7 +239,7 @@ Future<void> main() async {
       type: "plant4",
       name: "Write in journal",
       completed: "no",
-      duedate: "",
+      duedate: DateTime.utc(1944, 6, 6),
       location: "home",
       frequency: "daily",
       mood: "excited"));
