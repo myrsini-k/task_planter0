@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 // ignore: depend_on_referenced_packages
 import 'package:camera/camera.dart';
@@ -14,7 +13,7 @@ class MyFormPage extends StatelessWidget {
   final String title;
   late String label;
   late String frequency;
-  late DateTime due_date;
+  late DateTime duedate;
   late String mood;
   String location = 'home';
   //TextEditingController label = TextEditingController();
@@ -53,7 +52,7 @@ class MyFormPage extends StatelessWidget {
                     FastDatePicker(
                       backgroundColor: Colors.green,
                       onSaved: (value) {
-                        if (value != null) due_date = value;
+                        if (value != null) duedate = value;
                       },
                       name: 'due_date',
                       labelText: 'Due date',
@@ -67,7 +66,7 @@ class MyFormPage extends StatelessWidget {
                       },
                       name: 'dropdown',
                       labelText: 'Frequency',
-                      items: ['Once', 'Daily', 'Weekly', 'Monthly'],
+                      items: const ['Once', 'Daily', 'Weekly', 'Monthly'],
                       initialValue: 'Once',
                     ),
                     FastDropdown<String>(
@@ -77,7 +76,7 @@ class MyFormPage extends StatelessWidget {
                       },
                       name: 'dropdown_loc',
                       labelText: 'Location',
-                      items: ['Home', 'Uni', 'Work'],
+                      items: const ['Home', 'Uni', 'Work'],
                       initialValue: 'Home',
                     ),
                     FastRadioGroup<String>(
@@ -94,6 +93,7 @@ class MyFormPage extends StatelessWidget {
                       ],
                     ),
                     TextButton(
+                        style: ButtonStyle(),
                         child: const Text('Submit'),
                         onPressed: () {
                           if (formKey.currentState!.validate()) {
