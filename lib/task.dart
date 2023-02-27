@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 // ignore: depend_on_referenced_packages
-import 'package:camera/camera.dart';
+//import 'package:camera/camera.dart';
 import 'home.dart';
 import 'main.dart';
 //import 'package:flutter/cupertino.dart';
@@ -257,6 +257,7 @@ class TaskList extends StatefulWidget {
 }
 
 class _TaskListState extends State<TaskList> {
+  final firstCamera = cameras.first;
   @override
   Widget build(BuildContext context) {
     return Center(
@@ -300,6 +301,15 @@ class _TaskListState extends State<TaskList> {
                                       final tile = tasks.firstWhere(
                                           ((item) => item.id == personone.id));
                                       if (tile.completed == "no") {
+                                        Navigator.push(
+                                          context,
+                                          MaterialPageRoute(
+                                              builder: (context) =>
+                                                  TakePictureScreen(
+                                                    camera: firstCamera,
+                                                  )),
+                                        );
+
                                         //εδω κανονικα εμφανιζεται παραθυρο για ληψη εικονας και εχει επιλογη skip
                                       }
                                       setState(() => tile.completed = 'yes');

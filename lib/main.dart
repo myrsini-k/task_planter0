@@ -5,6 +5,7 @@ import 'home.dart';
 import 'task.dart';
 import 'package:flutter/material.dart';
 import 'package:camera/camera.dart';
+
 //import 'package:english_words/english_words.dart';
 /*
 Future<void> main() async {
@@ -27,8 +28,8 @@ Future<void> main() async {
       ),
     ),
   );
-}*/
-
+}
+*/
 // A screen that allows users to take a picture using a given camera.
 class TakePictureScreen extends StatefulWidget {
   const TakePictureScreen({
@@ -72,7 +73,8 @@ class TakePictureScreenState extends State<TakePictureScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('Take a picture')),
+      appBar:
+          AppBar(title: const Text('Take a picture for the completed task')),
       // You must wait until the controller is initialized before displaying the
       // camera preview. Use a FutureBuilder to display a loading spinner until the
       // controller has finished initializing.
@@ -89,6 +91,7 @@ class TakePictureScreenState extends State<TakePictureScreen> {
         },
       ),
       floatingActionButton: FloatingActionButton(
+        backgroundColor: Color(0xFFB3F39B),
         // Provide an onPressed callback.
         onPressed: () async {
           // Take the Picture in a try / catch block. If anything goes wrong,
@@ -118,7 +121,10 @@ class TakePictureScreenState extends State<TakePictureScreen> {
             print(e);
           }
         },
-        child: const Icon(Icons.camera_alt),
+        child: const Icon(
+          Icons.camera_alt,
+          color: const Color(0xFF2E5627),
+        ),
       ),
     );
   }
@@ -141,7 +147,12 @@ class DisplayPictureScreen extends StatelessWidget {
   }
 }
 
-void main() {
+var cameras;
+Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  cameras = await availableCameras();
+
+  // camera:  firstCamera;
   tasks.add(Task(
       id: idcounter,
       name: "Plant tree",
