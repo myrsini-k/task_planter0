@@ -1,10 +1,18 @@
 import 'package:flutter/material.dart';
 // ignore: depend_on_referenced_packages
+import 'package:flutter/services.dart';
 //import 'package:camera/camera.dart';
 import 'home.dart';
 import 'main.dart';
 //import 'package:flutter/cupertino.dart';
 import 'package:flutter_fast_forms/flutter_fast_forms.dart';
+
+Future<void> heavyImpact() async {
+  await SystemChannels.platform.invokeMethod<void>(
+    'HapticFeedback.vibrate',
+    'HapticFeedbackType.heavyImpact',
+  );
+}
 
 class MyFormPage extends StatelessWidget {
   MyFormPage({Key? key, required this.title}) : super(key: key);
@@ -301,6 +309,8 @@ class _TaskListState extends State<TaskList> {
                                       final tile = tasks.firstWhere(
                                           ((item) => item.id == personone.id));
                                       if (tile.completed == "no") {
+                                        // Clipboard.setData(ClipboardData());
+                                        HapticFeedback.heavyImpact();
                                         Navigator.push(
                                           context,
                                           MaterialPageRoute(
@@ -331,6 +341,7 @@ class _TaskListState extends State<TaskList> {
                                     ),
                                     onPressed: () {
                                       //delete action for this button
+                                      HapticFeedback.heavyImpact();
                                       tasks.removeWhere((element) {
                                         return element.id == personone.id;
                                       }); //go through the loop and match content to delete from list

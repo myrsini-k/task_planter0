@@ -1,12 +1,18 @@
 import 'dart:async';
 import 'dart:io';
-
+import 'package:flutter/services.dart';
 import 'home.dart';
 import 'task.dart';
 import 'package:flutter/material.dart';
 import 'package:camera/camera.dart';
 
-//import 'package:english_words/english_words.dart';
+Future<void> heavyImpact() async {
+  await SystemChannels.platform.invokeMethod<void>(
+    'HapticFeedback.vibrate',
+    'HapticFeedbackType.heavyImpact',
+  );
+} //import 'package:english_words/english_words.dart';
+
 /*
 Future<void> main() async {
   // Ensure that plugin services are initialized so that `availableCameras()`
@@ -351,6 +357,7 @@ class Base extends StatelessWidget {
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
+          HapticFeedback.heavyImpact();
           inputText = myController.text;
           Navigator.push(
               context,
