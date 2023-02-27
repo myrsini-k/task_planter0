@@ -1,4 +1,4 @@
-# my_app
+# Task Planter
 
 A new Flutter project.
 
