@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'home.dart';
+import 'main.dart';
 
 class PlantPage extends StatelessWidget {
   static final String home = 'Plants';
@@ -32,7 +33,7 @@ class PlantPage extends StatelessWidget {
                 fit: BoxFit.cover,
               ),
             ),
-            child: null),
+            child: PlantList()),
         bottomNavigationBar: BottomNavigationBar(
             items: <BottomNavigationBarItem>[
               BottomNavigationBarItem(
@@ -73,5 +74,39 @@ class PlantPage extends StatelessWidget {
 
             //onTap: _onItemTapped,
             elevation: 5));
+  }
+}
+
+class PlantList extends StatelessWidget {
+  PlantList({super.key});
+  var plants = tasks.where((o) => o.completed == 'yes');
+  @override
+  Widget build(BuildContext context) {
+    //const title = 'Grid List';
+
+    return Container(
+        color: const Color.fromARGB(255, 255, 184, 133),
+        child: GridView(
+          // Create a grid with 2 columns. If you change the scrollDirection to
+          // horizontal, this produces 2 rows.
+          //crossAxisCount: 2,
+          // Generate 100 widgets that display their index in the List.
+          padding: const EdgeInsets.all(25),
+          gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
+              maxCrossAxisExtent: 200,
+              childAspectRatio: 2 / 2,
+              crossAxisSpacing: 20,
+              mainAxisSpacing: 20),
+          children: plants
+              .map((el) => ConstrainedBox(
+                    constraints: const BoxConstraints(minHeight: 700),
+                    child: Column(children: [
+                      Image(image: AssetImage("assets/images/${el.type}.png")),
+                      Text(el.name),
+                    ]),
+                    // Text(el.name)
+                  ))
+              .toList(),
+        ));
   }
 }

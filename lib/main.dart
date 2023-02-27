@@ -11,31 +11,8 @@ Future<void> heavyImpact() async {
     'HapticFeedback.vibrate',
     'HapticFeedbackType.heavyImpact',
   );
-} //import 'package:english_words/english_words.dart';
-
-/*
-Future<void> main() async {
-  // Ensure that plugin services are initialized so that `availableCameras()`
-  // can be called before `runApp()`
-  WidgetsFlutterBinding.ensureInitialized();
-
-  // Obtain a list of the available cameras on the device.
-  final cameras = await availableCameras();
-
-  // Get a specific camera from the list of available cameras.
-  final firstCamera = cameras.first;
-
-  runApp(
-    MaterialApp(
-      theme: ThemeData.dark(),
-      home: TakePictureScreen(
-        // Pass the appropriate camera to the TakePictureScreen widget.
-        camera: firstCamera,
-      ),
-    ),
-  );
 }
-*/
+
 // A screen that allows users to take a picture using a given camera.
 class TakePictureScreen extends StatefulWidget {
   const TakePictureScreen({
@@ -170,6 +147,7 @@ Future<void> main() async {
   tasks.add(Task(
       id: idcounter,
       name: "Plant tree",
+      type: "plant4",
       completed: "no",
       duedate: "",
       location: "home",
@@ -179,6 +157,7 @@ Future<void> main() async {
   tasks.add(Task(
       id: idcounter,
       name: "Water plants",
+      type: "plant1",
       completed: "yes",
       duedate: "",
       location: "home",
@@ -187,6 +166,7 @@ Future<void> main() async {
   idcounter = idcounter + 1;
   tasks.add(Task(
       id: idcounter,
+      type: "plant2",
       name: "Finish report",
       completed: "no",
       duedate: "",
@@ -195,6 +175,7 @@ Future<void> main() async {
       mood: "stressed"));
   idcounter = idcounter + 1;
   tasks.add(Task(
+      type: "plant2",
       id: idcounter,
       name: "Work out",
       completed: "yes",
@@ -204,6 +185,7 @@ Future<void> main() async {
       mood: "happy"));
   idcounter = idcounter + 1;
   tasks.add(Task(
+      type: "plant3",
       id: idcounter,
       name: "Prepare dinner",
       completed: "no",
@@ -213,6 +195,7 @@ Future<void> main() async {
       mood: "happy"));
   idcounter = idcounter + 1;
   tasks.add(Task(
+      type: "plant4",
       id: idcounter,
       name: "Organise notes",
       completed: "no",
@@ -223,6 +206,7 @@ Future<void> main() async {
   idcounter = idcounter + 1;
   tasks.add(Task(
       id: idcounter,
+      type: "plant4",
       name: "Take out the trash",
       completed: "no",
       duedate: "",
@@ -231,6 +215,7 @@ Future<void> main() async {
       mood: "calm"));
   idcounter = idcounter + 1;
   tasks.add(Task(
+      type: "plant4",
       id: idcounter,
       name: "Get groceries",
       completed: "no",
@@ -241,6 +226,7 @@ Future<void> main() async {
   idcounter = idcounter + 1;
   tasks.add(Task(
       id: idcounter,
+      type: "plant3",
       name: "Go to John's party",
       completed: "no",
       duedate: "",
@@ -250,6 +236,7 @@ Future<void> main() async {
   idcounter = idcounter + 1;
   tasks.add(Task(
       id: idcounter,
+      type: "plant4",
       name: "Write in journal",
       completed: "no",
       duedate: "",

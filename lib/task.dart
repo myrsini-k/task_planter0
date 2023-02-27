@@ -101,13 +101,14 @@ class MyFormPage extends StatelessWidget {
                       ],
                     ),
                     TextButton(
-                        style: ButtonStyle(),
+                        style: const ButtonStyle(),
                         child: const Text('Submit'),
                         onPressed: () {
                           if (formKey.currentState!.validate()) {
                             formKey.currentState!.save();
                             tasks.add(Task(
                                 id: idcounter,
+                                type: "plant1",
                                 name: label,
                                 completed: "no",
                                 duedate: "",
@@ -248,9 +249,10 @@ class TaskPage extends StatelessWidget {
 
 class Task {
   int id;
-  String name, completed, duedate, location, frequency, mood;
+  String name, type, completed, duedate, location, frequency, mood;
   Task(
       {required this.id,
+      required this.type,
       required this.name,
       required this.completed,
       required this.duedate,
